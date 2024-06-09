@@ -6,9 +6,9 @@ def dar_de_alta(lista:list) -> dict:
     titulo = validar_titulo()
     genero = validar_genero()
     anio_lanzamiento = validar_anio_lanzamiento()
-    duracion = validar_duracion
-    apto_para_todo_publico = input("Introduzca ATP (Si/No): ")
-    plataformas = input("Introduzca plataformas: ")
+    duracion = validar_duracion()
+    apto_para_todo_publico = validar_atp()
+    plataformas = validar_plataformas()
 
     pelicula_a_agregar = {
             "identificacion" : identificacion,
@@ -76,15 +76,51 @@ def validar_anio_lanzamiento() -> int:
 def validar_duracion() -> int:
     duracion_pelicula = input("Introzuce duracion de la pelicula (min): ")
     while duracion_pelicula.isnumeric() != True:
-        duracion_pelicula = input("Reingrese minutos (Sólo números): ")
-        if duracion_pelicula.isnumeric() == True:
-            duracion_pelicula = int(duracion_pelicula)
-            break
-
-    while duracion_pelicula < 0:
-        duracion_pelicula = input("Reingrese minutos (Mayor a 0): ")
-        duracion_pelicula = int(duracion_pelicula)
+            duracion_pelicula = input("Reingrese minutos (Sólo números y mayores a 0): ")
+            if duracion_pelicula.isnumeric() == True:
+                duracion_pelicula = int(duracion_pelicula)
+                break
+    duracion_pelicula = int(duracion_pelicula)
 
     return duracion_pelicula
 
+def validar_atp() -> bool:
+    
+    atp = input("ATP Si/No: ")
+    veracidad = True
 
+    if atp == "No":
+        veracidad = False
+
+    while atp != "Si" and atp != "No":
+        atp = input("Reintroduzca ATP Si/No: ")
+
+        if atp == "Si":
+            veracidad = True
+            break
+        elif atp == "No":
+            veracidad = False
+            break
+    
+    return veracidad
+        
+
+def validar_plataformas() -> str:
+    plataforma = input("Ingrese plataforma: ")
+    longitud_plataforma = 0
+    plataformas_finales = ""
+    while plataforma.isnumeric() == True or plataforma.isalnum() == True:
+        plataforma = input("Error. Vuelve a introducir la plataforma: ")
+        longitud_plataforma = len(plataforma)
+        if longitud_plataforma > 20:
+            print("Error. Es demasiado larga")
+        if plataforma.isnumeric() == False and longitud_plataforma < 20:
+            plataformas_finales += plataforma
+            seguir = input("Quieres agregar otra? (Si/No): ")
+                
+            if seguir == "Si":
+                plataformas_finales += "-"
+            if seguir == "No":
+                return plataformas_finales
+        
+        
