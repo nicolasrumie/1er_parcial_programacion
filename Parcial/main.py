@@ -1,91 +1,56 @@
-from funciones_menu_main import *
+from sub_menu_mostrar_peliculas import *
+from sub_menu_calcular_promedio import *
+from sub_menu_calcular_porcentaje import *
+from sub_menu_dar_de_alta import *
+from sub_menu_eliminar_pelicula import *
+from sub_menu_buscar_pelicula import *
+from sub_menu_ordenar_peliculas import *
+from funcion_guardar_csv import *
+from mostrar_por_genero import *
 
-dar_de_alta_csv = open("Parcial\peliculas.csv", "r")
-lineas = dar_de_alta_csv.readlines()
-dar_de_alta_csv.close()
-
-lista_peliculas = []
-for i in range(1, len(lineas)):
-
-    datos = lineas[i]
-    datos = datos.split(",")
-    identificacion = datos[0]
-    titulo = datos[1]
-    genero = datos[2]
-    anio_lanzamiento = datos[3]
-    duracion = datos[4]
-    apto_para_todo_publico = datos[5]
-    plataformas = datos[6]
-    plataformas = plataformas.replace("\n", "")
-
-    pelicula = {
-            "identificacion" : identificacion,
-            "titulo" : titulo,
-            "genero" : genero,
-            "anio_lanzamiento" : anio_lanzamiento,
-            "duracion" : duracion,
-            "apto_para_todo_publico" : apto_para_todo_publico,
-            "plataformas" : plataformas
-        }
-
-    lista_peliculas.append(pelicula)
-
-# for i in range(len(lista_peliculas)):
-#     print("ID: ", lista_peliculas[i]["identificacion"])
-#     print("Titulo: ", lista_peliculas[i]["titulo"])
-#     print("Nombre: ", lista_peliculas[i]["genero"])
-#     print("Año: ", lista_peliculas[i]["anio_lanzamiento"])
-#     print("Duración (minutos): ", lista_peliculas[i]["duracion"])
-#     print("ATP: ", lista_peliculas[i]["apto_para_todo_publico"])
-#     print("Plataformas: ", lista_peliculas[i]["plataformas"])
-#     print("----------------------------------------------------------")
-
+lista_peliculas_importadas = importar_peliculas_csv("Parcial/peliculas.csv")
 
 while True:
     print("""
-            Bienvenido a nuestro menú:
         1_ Dar de alta.
         2_ Modificar película.
-        2_ Eliminar película.
+        3_ Eliminar película.
         4_ Mostrar películas.
         5_ Ordenar películas.
         6_ Buscar película (título).
         7_ Calcular promedio (año o duración).
         8_Calcular porcentaje (género o ATP).
-        9_ Salir. """)
+        9_ Salir. 
+        10_ Mostrar cantidad por genero. """)
     
     eleccion = int(input("Ingrese opción a elegir: "))
     
-
+    
     match eleccion:
         case 1:
-            pelicula_a_agregar = dar_de_alta(lista_peliculas)
-            lista_peliculas.append(pelicula_a_agregar)
+            menu_dar_de_alta(lista_peliculas_importadas)
         case 2:
             pass
-
         case 3:
-            pass
-
+            titulo = input("Ingrese pelicula que desee eliminar: ")
+            eliminar_pelicula(lista_peliculas_importadas, titulo)
         case 4:
-            pass
-
+            menu_mostrar_peliculas(lista_peliculas_importadas)          
         case 5:
-            pass
-            
+            menu_ordenar_pelicula(lista_peliculas_importadas)
         case 6:
-            pass
-
+            titulo = input("Ingrese pelicula que desea buscar: ")
+            buscar_pelicula_por_titulo(lista_peliculas_importadas, titulo)
         case 7:
-            pass
-
+            menu_calcular_promedio(lista_peliculas_importadas)
         case 8:
-            pass
-
+            menu_calcular_porcentaje(lista_peliculas_importadas)
         case 9:
+            guardar_csv("Parcial/peliculas.csv", lista_peliculas_importadas)
             print("¡Gracias por usar nuestro programa!")
             break
-
+        case 10:
+            mostrar_peliculas_por_genero(lista_peliculas_importadas)
         case _:
             print("Eleccion incorreta. (1-8) sino 9 para salir.")
 
