@@ -7,6 +7,7 @@ from sub_menu_buscar_pelicula import *
 from sub_menu_ordenar_peliculas import *
 from funcion_guardar_csv import *
 from mostrar_por_genero import *
+from sub_menu_modificar_pelicula import *
 
 lista_peliculas_importadas = importar_peliculas_csv("Parcial/peliculas.csv")
 
@@ -23,33 +24,34 @@ while True:
         9_ Salir. 
         10_ Mostrar cantidad por genero. """)
     
-    eleccion = int(input("Ingrese opción a elegir: "))
+    eleccion = input("Ingrese opción a elegir: ")
     
     
     match eleccion:
-        case 1:
+        case "1":
             menu_dar_de_alta(lista_peliculas_importadas)
-        case 2:
-            pass
-        case 3:
+        case "2":
+            titulo = input("Ingrese titulo a modificar: ")
+            menu_modificar_pelicula(buscar_pelicula(lista_peliculas_importadas, titulo))
+        case "3":
             titulo = input("Ingrese pelicula que desee eliminar: ")
             eliminar_pelicula(lista_peliculas_importadas, titulo)
-        case 4:
+        case "4":
             menu_mostrar_peliculas(lista_peliculas_importadas)          
-        case 5:
+        case "5":
             menu_ordenar_pelicula(lista_peliculas_importadas)
-        case 6:
+        case "6":
             titulo = input("Ingrese pelicula que desea buscar: ")
             buscar_pelicula_por_titulo(lista_peliculas_importadas, titulo)
-        case 7:
+        case "7":
             menu_calcular_promedio(lista_peliculas_importadas)
-        case 8:
+        case "8":
             menu_calcular_porcentaje(lista_peliculas_importadas)
-        case 9:
+        case "9":
             guardar_csv("Parcial/peliculas.csv", lista_peliculas_importadas)
             print("¡Gracias por usar nuestro programa!")
             break
-        case 10:
+        case "10":
             mostrar_peliculas_por_genero(lista_peliculas_importadas)
         case _:
             print("Eleccion incorreta. (1-8) sino 9 para salir.")

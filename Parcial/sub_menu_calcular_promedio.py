@@ -11,15 +11,13 @@ def menu_calcular_promedio(lista_peliculas:list[dict]) -> None:
             """)
         
         opcion = input("Ingrese una opción: ")
-        opcion = int(opcion)
-        
 
         match opcion:
-            case 1:
+            case "1":
                 calcular_promedio_anio_lanzamiento(lista_peliculas)
-            case 2:
+            case "2":
                 calcular_promedio_duracion(lista_peliculas)
-            case 3:
+            case "3":
                 break
             case _:
                 print("Opcion incorrecta.")
@@ -43,7 +41,7 @@ def calcular_promedio_anio_lanzamiento(lista_peliculas:list[dict]) -> None:
 def calcular_promedio_duracion(lista_peliculas:list[dict]) -> None:
     """
     Recibe la lista de peliculas
-    Suma la duracion de todas las peliculas y hace el promedio
+    Suma la duracion"" de todas las peliculas y hace el promedio
     """
     acumulador = 0
     for pelicula in lista_peliculas:

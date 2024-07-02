@@ -1,4 +1,5 @@
 import json
+generos = []
 lista_generos = ["Acción", "Aventura", "Animación", "Biográfico", "Comedia", "Comedia romántica",
         "Comedia dramática", "Crimen", "Documental", "Drama", "Fantasía", "Histórico",
         "Infantil", "Musical", "Misterio", "Policíaco", "Romance", "Ciencia ficción",
@@ -8,43 +9,40 @@ lista_generos = ["Acción", "Aventura", "Animación", "Biográfico", "Comedia", 
         "Steampunk", "Distopía", "Utopía", "Road Movie", "Docuficción", "Mockumentary",
         "Gótico", "Slasher", "Adolescente", "Culto", "Maravilloso"]
 
-def mostrar_peliculas_por_genero(lista_peliculas:list[dict]) -> None:
+def mostrar_peliculas_por_genero(lista_peliculas_importadas:list[dict]) -> None:
+    global generos
     lista_peliculas_mismo_genero = []
     lista_peliculas_mismo_genero_aux = []
     generos = []
-    bandera = False
+    count = 0
 
     for genero in lista_generos:
-        if bandera == False:
-            generos.append(genero)
-            bandera == True
-        if len(lista_peliculas_mismo_genero_aux) > 0:
-            lista_peliculas_mismo_genero.append(lista_peliculas_mismo_genero_aux)
-            generos.append(genero)
         lista_peliculas_mismo_genero_aux = []
-        for pelicula in lista_peliculas:
+        for pelicula in lista_peliculas_importadas:
             if pelicula['genero'] == genero:
                 lista_peliculas_mismo_genero_aux.append(pelicula['titulo'])
-
-    
-
+                count += 1
+            if count == 1:
+                count += 1
+                generos.append(genero)
+        count = 0
+        if len(lista_peliculas_mismo_genero_aux) > 0:
+            lista_peliculas_mismo_genero.append(lista_peliculas_mismo_genero_aux)
     
     crear_json("Parcial/json_peliculas.json", genero, generos, lista_peliculas_mismo_genero)
-
-        
 
 
 def crear_json(path:str, genero:str, generos:list[str] , lista_peliculas_mismo_genero:list[str]) -> None:
     formato = dict()
     contador = 0
-
     for genero in generos:
-        for i in range(len(lista_peliculas_mismo_genero), -1):
+        for i in range(len(lista_peliculas_mismo_genero)):
             i = contador
             formato[genero] = lista_peliculas_mismo_genero[i]
             contador += 1
             break
 
     archivo = open(path, 'w')
-    json.dump(formato, archivo, indent=4, ensure_ascii=False)
+    json.dump(formato, archivo, indent=8, ensure_ascii=False)
+    archivo.close()
 

@@ -12,15 +12,13 @@ def menu_calcular_porcentaje(lista_peliculas:list[dict]) -> None:
             """)
         
         opcion = input("Ingrese una opción: ")
-        opcion = int(opcion)
         
-
         match opcion:
-            case 1:
+            case "1":
                 calcular_porcentajes_por_genero(lista_peliculas)
-            case 2:
+            case "2":
                 calcular_porcentajes_por_atp(lista_peliculas)
-            case 3:
+            case "3":
                 break
             case _:
                 print("Opcion incorrecta.")
@@ -53,7 +51,7 @@ def calcular_porcentaje_por_genero(lista_peliculas:list[dict], genero: str) -> N
     elif contador_genero >= 1:
         porcentaje_genero = (len(lista_peliculas) * contador_genero) / 100
 
-    print(f"El porcentaje de películas con género {genero} es {porcentaje_genero}")
+    print(f"El porcentaje de películas con género {genero} es {porcentaje_genero}%")
 
 
 def calcular_porcentajes_por_atp(lista_peliculas: list[dict]) -> None:
@@ -71,7 +69,7 @@ def calcular_porcentajes_por_atp(lista_peliculas: list[dict]) -> None:
 def calcular_porcentaje_por_atp(lista_peliculas:list[dict], atp:str) -> None:
     
     """
-    Recibe el cuantas veces se repitió el atp y hace el calcula de porcentaje
+    Recibe el cuantas veces se repitió el atp y hace el calcula" de porcentaje
     """
 
     contador_atp = 0
@@ -85,5 +83,5 @@ def calcular_porcentaje_por_atp(lista_peliculas:list[dict], atp:str) -> None:
     elif contador_atp >= 1:
         porcentaje_atp = (len(lista_peliculas) * contador_atp) / 100
 
-    print(f"El porcentaje de películas con ATP {atp} es {porcentaje_atp}")
+    print(f"El porcentaje de películas con ATP {atp} es {porcentaje_atp}%")
     

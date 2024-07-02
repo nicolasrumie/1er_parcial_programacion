@@ -14,23 +14,21 @@ def menu_mostrar_peliculas(lista_peliculas:list[dict]) -> None:
             """)
         
         opcion = input("Ingrese una opción: ")
-        opcion = int(opcion)
         
-
         match opcion:
-            case 1:
+            case "1":
                 mostrar_peliculas(lista_peliculas)
-            case 2:
+            case "2":
                 genero = input("Ingrese género a filtrar: ")
                 mostrar_peliculas(mostrar_peliculas_por_genero(lista_peliculas, genero))
-            case 3:
+            case "3":
                 anio = input("Ingrese año a filtrar: ")
                 mostrar_peliculas(mostrar_peliculas_por_anio(lista_peliculas, anio))
-            case 4:
+            case "4":
                 mostrar_peliculas(mostrar_peliculas_por_atp(lista_peliculas))
-            case 5:
+            case "5":
                 mostrar_peliculas(mostrar_peliculas_por_no_atp(lista_peliculas))
-            case 6:
+            case "6":
                 break
             case _:
                 print("Opcion incorrecta.")

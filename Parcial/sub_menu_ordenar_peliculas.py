@@ -14,10 +14,9 @@ def menu_ordenar_pelicula(lista_peliculas:list[dict]) -> None:
             """)
         
         opcion = input("Ingrese una opción: ")
-        opcion = int(opcion)
         
         match opcion:
-            case 1:
+            case "1":
                 forma_int = None
                 forma = input("Ascendente (1) | Descendente (2): ")
                 if forma.isnumeric() == True:
@@ -41,7 +40,7 @@ def menu_ordenar_pelicula(lista_peliculas:list[dict]) -> None:
                     bubble_sort_descendente(lista_peliculas, 'titulo')
                     print("Peliculas ordenadas por titulo descendentemente")
 
-            case 2:
+            case "2":
                 forma_int = None
                 forma = input("Ascendente (1) | Descendente (2): ")
                 if forma.isnumeric() == True:
@@ -62,7 +61,7 @@ def menu_ordenar_pelicula(lista_peliculas:list[dict]) -> None:
                 else:
                     bubble_sort_descendente(lista_peliculas, 'genero')
                     print("Peliculas ordenadas por genero descendentemente")
-            case 3:
+            case "3":
                 forma_int = None
                 forma = input("Ascendente (1) | Descendente (2): ")
                 if forma.isnumeric() == True:
@@ -83,7 +82,7 @@ def menu_ordenar_pelicula(lista_peliculas:list[dict]) -> None:
                 else:
                     bubble_sort_descendente(lista_peliculas, 'anio_lanzamiento')
                     print("Peliculas ordenadas por año de lanzamiento descendentemente")
-            case 4:
+            case "4":
                 forma_int = None
                 forma = input("Ascendente (1) | Descendente (2): ")
                 if forma.isnumeric() == True:
@@ -104,7 +103,7 @@ def menu_ordenar_pelicula(lista_peliculas:list[dict]) -> None:
                 else:
                     bubble_sort_descendente(lista_peliculas, 'duracion')
                     print("Peliculas ordenadas por duracion descendentemente")
-            case 5:
+            case "5":
                 break
             case _:
                 print("Opcion incorrecta.")
@@ -117,7 +116,7 @@ def bubble_sort(lista_peliculas:list[dict], clave:str) -> None:
 
     for j in range (len(lista_peliculas)):
         intercambio = False
-        for i in range(len(lista_peliculas)-1 -j):
+        for i in range(1, len(lista_peliculas)-1 -j):
             if lista_peliculas[i][clave] > lista_peliculas[i + 1][clave]:
                 auxiliar = lista_peliculas[i][clave]
                 lista_peliculas[i][clave] = lista_peliculas[i + 1][clave]
@@ -132,7 +131,7 @@ def bubble_sort_descendente(lista_peliculas:list[dict], clave:str) -> None:
     Filtrado Bubble Sort, filtra descendientemente
     """
 
-    for j in range (len(lista_peliculas)):
+    for j in range (1, len(lista_peliculas)):
         intercambio = False
         for i in range(len(lista_peliculas)-1 -j):
             if lista_peliculas[i][clave] < lista_peliculas[i + 1][clave]:

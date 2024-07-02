@@ -1,0 +1,143 @@
+{
+        "Acción": [
+                "12 Años de Esclavitud",
+                "trola",
+                "Amnesia",
+                "Amélie",
+                "Avatar"
+        ],
+        "Aventura": [
+                "El Rey León",
+                "El Secreto de sus Ojos",
+                "El Señor de los Anillos: La Comunidad del Anillo"
+        ],
+        "Animación": [
+                "Bastardos Sin Gloria",
+                "Bichos",
+                "Birdman",
+                "Blade Runner 2049",
+                "Buscando a Dory",
+                "Buscando a Nemo",
+                "Cenicienta",
+                "Coco",
+                "Corazón Valiente",
+                "Django Sin Cadenas",
+                "Duro de Matar",
+                "El Caballero Oscuro",
+                "El Club de la Pelea",
+                "El Exorcista",
+                "El Gran Gatsby",
+                "El Gran Hotel Budapest",
+                "El Gran Lebowski",
+                "El Gran Truco",
+                "El Hobbit: Un Viaje Inesperado",
+                "El Joven Manos de Tijera",
+                "El Juego de la Fortuna",
+                "El Lobo de Wall Street",
+                "El Origen",
+                "El Padrino",
+                "El Renacido",
+                "El Resplandor"
+        ],
+        "Biográfico": [
+                "El Señor de los Anillos: Las Dos Torres",
+                "El Show de Truman",
+                "El Silencio de los Inocentes",
+                "Ella"
+        ],
+        "Comedia": [
+                "Jurassic World"
+        ],
+        "Comedia romántica": [
+                "La Gran Aventura LEGO"
+        ],
+        "Comedia dramática": [
+                "Kung Fu Panda",
+                "La Bella y la Bestia",
+                "La Era de Hielo"
+        ],
+        "Crimen": [
+                "La La Land: Una Historia de Amor",
+                "La Llegada"
+        ],
+        "Drama": [
+                "La Vida Secreta de tus Mascotas",
+                "La Vida es Bella",
+                "Logan",
+                "Los 8 Más Odiados",
+                "Los Increíbles",
+                "Los Increíbles 2",
+                "Los Infiltrados"
+        ],
+        "Fantasía": [
+                "Los Vengadores",
+                "Mad Max: Furia en el Camino",
+                "Matrix",
+                "Mi Villano Favorito"
+        ],
+        "Histórico": [
+                "Monsters Inc.",
+                "Mulán"
+        ],
+        "Musical": [
+                "Parque Jurásico",
+                "Perdida"
+        ],
+        "Misterio": [
+                "Nace una Estrella",
+                "Pantera Negra"
+        ],
+        "Policíaco": [
+                "Rocky"
+        ],
+        "Romance": [
+                "Shrek",
+                "Sin Lugar para los Débiles",
+                "Spider-Man: Un Nuevo Universo"
+        ],
+        "Ciencia ficción": [
+                "Enredados",
+                "Eterno Resplandor de una Mente Sin Recuerdos",
+                "Forrest Gump",
+                "Frozen: Una Aventura Congelada",
+                "Gladiador",
+                "Gravedad",
+                "Hacia Rutas Salvajes",
+                "Harry Potter y la Piedra Filosofal",
+                "Interestelar",
+                "John Wick: Otro Día para Matar"
+        ],
+        "Suspenso": [
+                "Toy Story",
+                "Toy Story 2",
+                "Una Aventura Extraordinaria",
+                "Una Mente Brillante",
+                "Valiente"
+        ],
+        "Terror": [
+                "Vengadores: Endgame",
+                "Volver al Futuro",
+                "Zootopia"
+        ],
+        "Western": [
+                "¡Huye!",
+                "¿Quién Quiere Ser Millonario?"
+        ],
+        "Bélico": [
+                "En Busca de la Felicidad"
+        ],
+        "Deportivo": [
+                "La Red Social",
+                "La Sirenita"
+        ],
+        "Superhéroes": [
+                "Star Wars: Una Nueva Esperanza",
+                "Sueños de Libertad",
+                "Tiburón",
+                "Tiempos Violentos",
+                "Titanic"
+        ],
+        "Fantástico": [
+                "Misión Rescate"
+        ]
+}

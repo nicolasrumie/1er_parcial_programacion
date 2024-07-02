@@ -31,6 +31,7 @@ def menu_dar_de_alta(lista_peliculas:list[dict]) -> None:
     duracion = validar_duracion()
     apto_para_todo_publico = validar_atp()
     plataformas = validar_plataformas()
+    print("Pelicula dada de alta correctamente. ")
     
     return dar_de_alta(lista_peliculas, identificacion, titulo, genero, anio_lanzamiento, duracion, apto_para_todo_publico, plataformas)
 
@@ -41,8 +42,9 @@ def get_identificacion(lista_peliculas:list[dict]) -> int:
     """
 
     maximo_id = 0
+    print(maximo_id)
     bandera_maximo = True
-    for i in range(len(lista_peliculas)):
+    for i in range(1, len(lista_peliculas)):
         if bandera_maximo == True or int(lista_peliculas[i]['id']) > maximo_id:
             maximo_id = int(lista_peliculas[i]['id'])
             bandera_maximo = False

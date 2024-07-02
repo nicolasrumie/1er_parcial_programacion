@@ -10,7 +10,6 @@ def guardar_csv(path:str, lista_peliculas:list[dict]) -> None:
         archivo.write(linea)
 
 def importar_peliculas_csv(path: str) -> list[dict]:
-
     lista_peliculas = []
 
     with open(path, "r", encoding='utf8') as archivo:
@@ -25,8 +24,12 @@ def importar_peliculas_csv(path: str) -> list[dict]:
             diccionario["duracion"] = datos[4]
             diccionario["apto_para_todo_publico"] = datos[5]
             diccionario["plataformas"] = datos[6]
-
             lista_peliculas.append(diccionario)
-    print(lista_peliculas)
+            if len(lista_peliculas) > 1:
+                for pelicula in range(len(lista_peliculas) - 1):
+                        if diccionario["titulo"] == lista_peliculas[pelicula]["titulo"]:
+                            lista_peliculas.pop()
+                            break
+                        
 
     return lista_peliculas
