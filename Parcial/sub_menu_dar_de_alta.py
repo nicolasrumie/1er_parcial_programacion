@@ -144,23 +144,19 @@ def validar_atp() -> bool:
     """
     
     atp = input("ATP Si/No: ")
-    veracidad = True
-
-    if atp == "No":
-        veracidad = False
 
     while atp != "Si" and atp != "No":
         atp = input("Reintroduzca ATP Si/No: ")
 
         if atp == "Si":
-            veracidad = True
+            atp = "Si"
             break
         elif atp == "No":
-            veracidad = False
+            atp = "No"
             break
         
     
-    return veracidad
+    return atp
         
 
 def validar_plataformas() -> str:
